@@ -1,0 +1,31 @@
+CREATE DATABASE apigolsolidario;
+
+CREATE TABLE time(
+	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome varchar(100)
+);
+
+create TABLE usuario(
+	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome varchar(100) NOT NULL,
+    email varchar NOT NULL,
+    telefone varchar(20) NOT NULL,
+    time_id int,
+    FOREIGN KEY (time_id) REFERENCES time(id)
+);
+
+create TABLE doacao(
+	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    usuario_id int,
+    estatus ENUM('Pendente', 'Recebida') DEFAULT 'Pendente',
+    FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
+);
+
+create TABLE partida(
+	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    time_mandante int, FOREIGN KEY(time_mandante) REFERENCES time(id),
+    time_visitante int, FOREIGN KEY(time_visitante) REFERENCES time(id),
+    dia date NOT NULL,
+    placar_mandante int,
+    placar_visitante int
+);

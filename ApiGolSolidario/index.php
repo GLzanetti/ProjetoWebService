@@ -6,7 +6,7 @@
     if(@$_GET['url']){
         $url = explode('/', @$_GET['url']);
 
-        if($url[0] == "users"){
+        if($url[0] == "usuarios"){
             
             $service = ucfirst($url[0])."Service";
             $method = $_SERVER['REQUEST_METHOD'];

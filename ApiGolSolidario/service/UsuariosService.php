@@ -1,13 +1,13 @@
 <?php
 
-    include_once "../model/Usuarios.php";
+    require_once __DIR__ . "/../model/Usuarios.php";
 
     class UsuariosService {
         
         // echo ("GET method called with ID: ");
         public function get( $id = null ) {
             if($id) {
-                return Usuarios::buscarPorId($id[0]); ;
+                return Usuarios::buscarPorId($id); ;
             }else {
                 return Usuarios::listar();
             }
@@ -22,7 +22,7 @@
             return Usuarios::inserir($dados);
         }
 
-        public function put( $id ) {
+        public function put( $id = null ) {
             if($id == null) {
                 throw new Exception("ID inválido");
             }

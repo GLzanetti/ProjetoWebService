@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'service/UsersService.php';
+    require_once 'service/UsuariosService.php';
 
     //If para a validação da URL
     if(@$_GET['url']){
@@ -12,11 +12,12 @@
             $method = $_SERVER['REQUEST_METHOD'];
 
             array_shift($url);
-
+            
+            $id = count($url) > 0 ? $url[0] : null;
             try{
-                $response = call_user_func(array(new $service, $method), $url);
+                $response = call_user_func(array(new $service, $method), $id);
                 http_response_code(200);
-                echo ($response);
+                echo $response;
             } catch (Exception $e) {
                 http_response_code(500);
                 echo ("Erro 500: ");

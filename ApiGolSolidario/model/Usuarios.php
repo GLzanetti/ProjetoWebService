@@ -1,6 +1,6 @@
 <?php 
 
-    include_once "config.php";
+    require __DIR__ .  "/../config.php";
 
     class Usuarios {
 
@@ -38,7 +38,9 @@
             $stmt->execute();
 
             if($stmt->rowCount() > 0) {
-                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $valores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return json_encode($valores); // Convertendo o array para JSON antes de
+                
             } else {
                 return "Nenhum usuário encontrado.";
             }
@@ -57,14 +59,16 @@
             $stmt->execute();
 
             if($stmt->rowCount() > 0) {
-                return $stmt->fetch(PDO::FETCH_ASSOC);
+                $valores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return json_encode($valores); // Convertendo o array para JSON antes de
+                
             } else {
                 return "Usuário não encontrado.";
             }
         }
 
         //Alterar dados usuario
-        public static function alterar($id, $usuario) {
+        public static function atualizar($id, $usuario) {
             $tabela = "usuarios";
 
             $conexao = new PDO(dbDriver.":host=".dbHost.";dbname=".dbName, dbUsuario, dbSenha);

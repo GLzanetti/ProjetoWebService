@@ -10,12 +10,13 @@
 
             $conexao = new PDO(dbDriver.":host=".dbHost.";dbname=".dbName, dbUsuario, dbSenha);
 
-            $sql = "INSERT INTO $tabela (nome, email, telefone) VALUES (:nome, :email, :telefone)";
+            $sql = "INSERT INTO $tabela (nome, email, telefone, time_id) VALUES (:nome, :email, :telefone, :time_id)";
             
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":nome", $usuario["nome"]);
             $stmt->bindValue(":email", $usuario["email"]);
             $stmt->bindValue(":telefone", $usuario["telefone"]);
+            $stmt->bindValue(":time_id", $usuario["time_id"]);
 
             $stmt->execute();
 
@@ -39,7 +40,7 @@
 
             if($stmt->rowCount() > 0) {
                 $valores = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                return json_encode($valores); // Convertendo o array para JSON antes de
+                return json_encode($valores);
                 
             } else {
                 return "Nenhum usuário encontrado.";
@@ -73,12 +74,13 @@
 
             $conexao = new PDO(dbDriver.":host=".dbHost.";dbname=".dbName, dbUsuario, dbSenha);
 
-            $sql = "UPDATE $tabela SET nome = :nome, email = :email, telefone = :telefone WHERE id = :id";
+            $sql = "UPDATE $tabela SET nome = :nome, email = :email, telefone = :telefone, time_id = :time_id WHERE id = :id";
             
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":nome", $usuario["nome"]);
             $stmt->bindValue(":email", $usuario["email"]);
             $stmt->bindValue(":telefone", $usuario["telefone"]);
+            $stmt->bindValue(":time_id", $usuario["time_id"]);
             $stmt->bindValue(":id", $id);
 
             $stmt->execute();

@@ -1,11 +1,11 @@
 CREATE DATABASE apigolsolidario;
 
-CREATE TABLE time(
+CREATE TABLE times(
 	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome varchar(100)
 );
 
-create TABLE usuario(
+create TABLE usuarios(
 	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome varchar(100) NOT NULL,
     email varchar(150) NOT NULL,
@@ -21,7 +21,7 @@ create TABLE doacao(
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
 );
 
-create TABLE partida(
+create TABLE partidas(
 	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     time_mandante int, FOREIGN KEY(time_mandante) REFERENCES time(id),
     time_visitante int, FOREIGN KEY(time_visitante) REFERENCES time(id),

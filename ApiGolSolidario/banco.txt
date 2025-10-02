@@ -17,7 +17,7 @@ create TABLE usuarios(
 create TABLE doacao(
 	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     usuario_id int,
-    estatus ENUM('Pendente', 'Recebida') DEFAULT 'Pendente',
+    status ENUM('Pendente', 'Recebida') DEFAULT 'Pendente',
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
 );
 

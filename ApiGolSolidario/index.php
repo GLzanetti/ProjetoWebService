@@ -44,7 +44,31 @@
 
                 $id= count($url) > 0 ? $url[0] : null;
             }
-        } 
+        }else if($url[0] == "doacao"){
+            array_shift($url);
+
+            if($method == "GET"){
+                
+                if(count($url) == 0){ //Rota 1 - /doacao
+                    $method_name = "get";
+                    $id = null;
+
+                } else if(count($url) == 1){ //Rota 2 - /doacao/{id}
+                    $method_name = "getDoacaoUsuario";
+                    $id= count($url) > 0 ? $url[0] : null;
+
+                } else {
+                    echo ("Rota não encontrada 404");
+                    http_response_code(404);
+                    exit;
+                }
+
+            } else { //Rota para outros metodos - POST, PUT
+                $method_name = $method;
+
+                $id= count($url) > 0 ? $url[0] : null;
+            }
+        }
 
         if($method_name){
             try{

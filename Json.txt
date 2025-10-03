@@ -1,0 +1,51 @@
+POST:
+
+"Usuarios"
+{ 
+    "nome": "",
+    "email": "",
+    "telefone": "",
+    "time_id": 
+}
+
+"Times"
+{
+    "nome": "" 
+}
+
+"Partidas"
+{
+    "time_mandante": ,
+    "time_visitante": ,
+    "dia": "0000-00-00",
+    "placar_mandante": ,
+    "placar_visitante": 
+}
+
+"Doação":
+{
+    "usuario_id": 
+}
+
+PUT:
+
+"Usuarios"
+{ 
+    "nome": "",
+    "email": "",
+    "telefone": "",
+    "time_id": 
+}
+
+"Partidas"
+{
+    "time_mandante": ,
+    "time_visitante": ,
+    "dia": "0000-00-00"
+}
+
+"Placar Partidas"
+{
+    "placar_mandante": ,
+    "placar_visitante": 
+}

@@ -1,6 +1,6 @@
 <?php 
 
-    use App\Enums\StatusDoacao;
+    require_once __DIR__.'/../enum/StatusDoacao.php';
 
     class Doacao {
         

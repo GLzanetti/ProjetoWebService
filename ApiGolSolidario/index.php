@@ -2,6 +2,8 @@
 
     require_once 'service/UsuariosService.php';
     require_once 'service/TimesService.php';
+    require_once 'service/DoacaoService.php';
+    require_once 'service/PartidasService.php';
 
     //If para a validação da URL
     if(@$_GET['url']){
@@ -12,8 +14,9 @@
 
         $method_name = null;
         $id = null;
-        
 
+        //Rotas para usuários, times e doações
+        
         if($url[0] == "usuarios"){
             
             $method_name = $method;
@@ -50,7 +53,7 @@
             if($method == "GET"){
                 
                 if(count($url) == 0){ //Rota 1 - /doacao
-                    $method_name = "get";
+                    $method_name = "getTodas";
                     $id = null;
 
                 } else if(count($url) == 1){ //Rota 2 - /doacao/{id}
@@ -68,12 +71,52 @@
 
                 $id= count($url) > 0 ? $url[0] : null;
             }
+        }else if($url[0] == "partidas"){
+            array_shift($url);
+
+            if($method == "GET"){
+                
+                if(count($url) == 0){ //Rota 1 - /partidas
+                    $method_name = "getTodas";
+                    $id = null;
+
+                } else if(count($url) == 1){ //Rota 2 - /partidas/{id}
+                    $method_name = "getPartida";
+                    $id= count($url) > 0 ? $url[0] : null;
+
+                } else {
+                    echo ("Rota não encontrada 404");
+                    http_response_code(404);
+                    exit;
+                }
+
+            }else if($method == "PUT"){
+
+                if(count($url) == 1){ //Rota 1 - /partidas/{id}
+                    $method_name = "putPartida";
+                    $id= count($url) > 0 ? $url[0] : null;
+
+                } else if(count($url) == 2 && $url[0] == "placar"){ //Rota 2 - /partidas/placar/{id}
+                    $method_name = "putPlacarPartida";
+                    $id= count($url) > 1 ? $url[1] : null;
+
+                } else {
+                    echo ("Rota não encontrada 404");
+                    http_response_code(404);
+                    exit;
+                }
+            }else { //Rota para outros metodos - POST, DELETE
+                $method_name = $method;
+
+                $id= count($url) > 0 ? $url[0] : null;
+            }
         }
 
         if($method_name){
             try{
                 if(!class_exists($service) || !method_exists($service, $method_name)){
-                    echo ("Rota não encontrada 404");
+                    echo ("Rota não encontrada 404 138");
+                    echo ("\nService: $service - Method: $method_name");
                     http_response_code(404);
                     exit;
                 }

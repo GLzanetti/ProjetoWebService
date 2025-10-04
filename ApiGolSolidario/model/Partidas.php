@@ -72,12 +72,12 @@
 
             $conexao = new PDO(dbDriver.":host=".dbHost.";dbname=".dbName, dbUsuario, dbSenha);
 
-            $sql = "UPDATE $tabela SET time_mandante = :time_mandante, time_visitante = :time_visitante, data = :data WHERE id = :id";
+            $sql = "UPDATE $tabela SET time_mandante = :time_mandante, time_visitante = :time_visitante, dia = :dia WHERE id = :id";
 
             $stmt = $conexao->prepare($sql);
             $stmt->bindParam(':time_mandante', $dados['time_mandante']);
             $stmt->bindParam(':time_visitante', $dados['time_visitante']);
-            $stmt->bindParam(':data', $dados['data']);
+            $stmt->bindParam(':dia', $dados['dia']);
             $stmt->bindParam(':id', $id);
 
             $stmt->execute();

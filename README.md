@@ -36,6 +36,7 @@ Esta documentação lista todos os endpoints (URLs) suportados pela API, organiz
 | **GET** | `/doacao/{id}` | Busca a doação de um usuário específico (pelo `usuario_id`). |
 | **POST** | `/doacao` | Cria uma nova doação (status inicial `PENDENTE`). |
 | **PUT** | `/doacao/{id}` | Atualiza o status da doação (ex: para `RECEBIDA`). |
+| **PUT** | `/doacao/usuario/{id}` | Atualiza o id do usuario da doação (ex: para `null`). |
 
 ---
 

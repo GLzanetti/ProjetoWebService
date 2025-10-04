@@ -2,29 +2,29 @@ POST:
 
 "Usuarios"
 { 
-    "nome": "",
-    "email": "",
-    "telefone": "",
-    "time_id": 
+    "nome": "Gabriel",
+    "email": "gabriel@gmail.com",
+    "telefone": "11971505572",
+    "time_id": null
 }
 
 "Times"
 {
-    "nome": "" 
+    "nome": "Times 1" 
 }
 
 "Partidas"
 {
-    "time_mandante": ,
-    "time_visitante": ,
-    "dia": "0000-00-00",
-    "placar_mandante": ,
-    "placar_visitante": 
+    "time_mandante": 1,
+    "time_visitante": 2,
+    "dia": "2025-11-09",
+    "placar_mandante": null,
+    "placar_visitante": null
 }
 
 "Doação":
 {
-    "usuario_id": 
+    "usuario_id": 1
 }
 
 PUT:

@@ -66,7 +66,23 @@
                     exit;
                 }
 
-            } else { //Rota para outros metodos - POST, PUT
+            }else if($method == "PUT"){
+                
+                if(count($url) == 1){ //Rota 1 - /doacao/{id}
+                    $method_name = "put";
+                    $id= count($url) > 0 ? $url[0] : null;
+
+                } else if(count($url) == 2 && $url[0] == "usuario"){ //Rota 2 - /doacao/usuario/{id}
+                    $method_name = "putUsuario";
+                    $id= count($url) > 1 ? $url[1] : null;
+
+                } else {
+                    echo ("Rota não encontrada 404");
+                    http_response_code(404);
+                    exit;
+                }
+                
+            } else { //Rota para outros metodos - POST
                 $method_name = $method;
 
                 $id= count($url) > 0 ? $url[0] : null;
@@ -115,8 +131,7 @@
         if($method_name){
             try{
                 if(!class_exists($service) || !method_exists($service, $method_name)){
-                    echo ("Rota não encontrada 404 138");
-                    echo ("\nService: $service - Method: $method_name");
+                    echo ("Rota não encontrada 404");
                     http_response_code(404);
                     exit;
                 }

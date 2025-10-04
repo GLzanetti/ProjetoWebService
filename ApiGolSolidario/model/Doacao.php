@@ -88,5 +88,24 @@
                 return "Erro ao atualizar status ou doação não encontrada";
             }
         }
+
+        public static function atualizarDoacaoUsuario($id){
+            $tabela = "doacao";
+
+            $conexao = new PDO(dbDriver.":host=".dbHost.";dbname=".dbName, dbUsuario, dbSenha);
+
+            $sql = "UPDATE $tabela SET usuario_id = null WHERE id = :id";
+
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            
+            $stmt->execute();
+
+            if($stmt->rowCount() > 0){
+                return "Usuário da doação atualizado com sucesso";
+            } else {
+                return "Erro ao atualizar usuário ou doação não encontrada";
+            }
+        }
     }
 ?>

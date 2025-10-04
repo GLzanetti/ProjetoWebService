@@ -37,5 +37,13 @@
 
             return Doacao::atualizarStatus($id);
         }
+
+        public function putUsuario($id){
+            if($id == null){
+                throw new Exception("ID do usuário não fornecido");
+            }
+
+            return Doacao::atualizarDoacaoUsuario($id);
+        }
     }
 ?>

@@ -1,12 +1,144 @@
 *{
     padding: 0px;
     margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .header{
-    background-color: aqua;
+    padding: 10px;
+    background-color: #4CAF50;
+    display: flex;
+    flex-direction: row;
 }
 
+.header img{
+    width: 200px;
+    height: 200px;
+    margin: 10px 10px 10px 50px;
+    border-radius: 50%;
+}
+
+.header nav{
+    align-self: center;
+    margin-left: auto;
+    margin-right: 25px;
+}
+
+.header nav a{
+    text-decoration: none;
+    color: #F7F7F7;
+    font-weight: bold;
+    margin: 15px;
+    font-size: 18px;
+    transition: 0.5s;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.header nav a:hover{
+    text-decoration: underline;
+    background-color: rgba(6, 126, 6, 0.733);
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
 .body{
-    background-color: blanchedalmond;
+    background-color: #F7F7F7;
+}
+
+.bem_vindo{
+    color: #4CAF50;
+    text-align: center;
+    padding: 50px;
+}
+
+.bem_vindo img{
+    width: 400px;
+    height: 300px;
+    padding: 10px;
+}
+
+.bem_vindo h1{
+    font-size: 40px;
+    margin: 20px;
+}
+
+.bem_vindo p{
+    text-align: center;
+    color: #1A237E;
+    margin: auto;
+    width: 50%;
+    padding: 20px 10px 10px 10px;
+    font-size: 20px;
+}
+
+.proposito{
+    background-color: #4CAF50;
+    height: 300px;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.proposito h2{
+    color: #F7F7F7;
+    font-size: 30px;
+    margin: 20px;
+    width: 40%;
+    
+}
+
+.proposito p{
+    color: #1A237E;
+    font-size: 20px;
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+}
+
+.participacao{
+    background-color: #F7F7F7;
+    text-align: center;
+    padding: 50px;
+}
+
+.participacao h2{
+    color: #4CAF50;
+    margin: 20px;
+    font-size: 30px;
+}
+
+.participacao p{
+    color: #1A237E;
+    font-size: 20px;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.participacao ol{
+    color: #1A237E;
+    font-size: 20px;
+    width: 800px;
+    margin: auto;
+    text-align: justify;
+    padding: 10px;
+}
+
+.participacao ol li{
+    margin: 10px;
+}
+
+.footer{
+    background-color: #4CAF50;
+    text-align: center;
+    padding: 20px;
+    color: #F7F7F7;
+    font-weight: bold;
 }

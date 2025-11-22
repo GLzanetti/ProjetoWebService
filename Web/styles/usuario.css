@@ -5,7 +5,7 @@ body {
     background: #4CAF50;
     text-align: center;
     color: #F7F7F7;
-    
+
 }
 
 .titulo {
@@ -56,7 +56,7 @@ body {
     cursor: pointer;
     border-radius: 10px;
     transition: 0.3s;
-    
+
 }
 
 .btn:hover {

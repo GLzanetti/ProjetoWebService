@@ -1,30 +1,30 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.header{
+.header {
     padding: 10px;
     background-color: #4CAF50;
     display: flex;
     flex-direction: row;
 }
 
-.header img{
+.header img {
     width: 200px;
     height: 200px;
     margin: 10px 10px 10px 50px;
     border-radius: 50%;
 }
 
-.header nav{
+.header nav {
     align-self: center;
     margin-left: auto;
     margin-right: 25px;
 }
 
-.header nav a{
+.header nav a {
     text-decoration: none;
     color: #F7F7F7;
     font-weight: bold;
@@ -35,7 +35,7 @@
     border-radius: 10px;
 }
 
-.header nav a:hover{
+.header nav a:hover {
     text-decoration: underline;
     background-color: rgba(6, 126, 6, 0.733);
     color: rgb(0, 0, 0);
@@ -45,28 +45,28 @@
 }
 
 
-.body{
+.body {
     background-color: #F7F7F7;
 }
 
-.bem_vindo{
+.bem_vindo {
     color: #4CAF50;
     text-align: center;
     padding: 50px;
 }
 
-.bem_vindo img{
+.bem_vindo img {
     width: 400px;
     height: 300px;
     padding: 10px;
 }
 
-.bem_vindo h1{
+.bem_vindo h1 {
     font-size: 40px;
     margin: 20px;
 }
 
-.bem_vindo p{
+.bem_vindo p {
     text-align: center;
     color: #1A237E;
     margin: auto;
@@ -75,7 +75,7 @@
     font-size: 20px;
 }
 
-.proposito{
+.proposito {
     background-color: #4CAF50;
     height: 300px;
     padding: 50px;
@@ -85,15 +85,15 @@
     justify-content: center;
 }
 
-.proposito h2{
+.proposito h2 {
     color: #F7F7F7;
     font-size: 30px;
     margin: 20px;
     width: 40%;
-    
+
 }
 
-.proposito p{
+.proposito p {
     color: #1A237E;
     font-size: 20px;
     width: 30%;
@@ -101,19 +101,19 @@
     text-align: center;
 }
 
-.participacao{
+.participacao {
     background-color: #F7F7F7;
     text-align: center;
     padding: 50px;
 }
 
-.participacao h2{
+.participacao h2 {
     color: #4CAF50;
     margin: 20px;
     font-size: 30px;
 }
 
-.participacao p{
+.participacao p {
     color: #1A237E;
     font-size: 20px;
     width: 50%;
@@ -122,7 +122,7 @@
     text-align: center;
 }
 
-.participacao ol{
+.participacao ol {
     color: #1A237E;
     font-size: 20px;
     width: 800px;
@@ -131,11 +131,11 @@
     padding: 10px;
 }
 
-.participacao ol li{
+.participacao ol li {
     margin: 10px;
 }
 
-.footer{
+.footer {
     background-color: #4CAF50;
     text-align: center;
     padding: 20px;

@@ -1,31 +1,31 @@
 body {
-margin: 0;
-padding: 0;
-font-family: Arial, sans-serif;
-background: #4CAF50;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 
 .container {
-width: 700px;
-text-align: center;
+    width: 700px;
+    text-align: center;
 }
 
 
 h1 {
-font-size: 40px;
-margin-bottom: 25px;
-color: #F7F7F7;
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: #F7F7F7;
 }
 
 
 input {
-     width: 100%;
+    width: 100%;
     padding: 15px;
     margin: 10px 0;
     border: 1px solid #000000c5;
@@ -38,7 +38,7 @@ input {
 
 
 button {
- width: 180px;
+    width: 180px;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #000000c5;
@@ -51,12 +51,12 @@ button {
 
 
 .row-buttons {
-display: flex;
-justify-content: center;
-gap: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 
 .row-buttons button {
-width: 180px;
+    width: 180px;
 }

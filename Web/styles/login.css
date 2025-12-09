@@ -4,25 +4,43 @@ body {
     font-family: Arial, sans-serif;
     background: #4CAF50;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     box-sizing: border-box;
 }
 
-
 .container {
-    width: 700px;
+    width: 400px;
+    padding: 20px;
+    border: 2px solid #000000c5;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #F7F7F7;
+}
+
+.text_bem-vindo {
     text-align: center;
 }
 
-
-h1 {
+.text_bem-vindo h1 {
     font-size: 40px;
     margin-bottom: 25px;
     color: #F7F7F7;
 }
 
+.logo{
+    width: 200px;
+    height: 200px;
+    border-radius: 20%;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: #1A237E;
+}
 
 input {
     width: 100%;
@@ -36,27 +54,43 @@ input {
     box-sizing: border-box;
 }
 
-
 button {
     width: 180px;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #000000c5;
-    background: #F7F7F7;
+    border: 0px;
+    background: #4CAF50;
+    color: #1A237E;
     cursor: pointer;
     border-radius: 10px;
     transition: 0.3s;
     margin: 15px;
 }
 
-
-.row-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+button:hover {
+    background-color: #45a049;
+    font-size: 20px;
+    border-radius: 15px;
+    transition: 0.5s;
 }
 
+.cadastro-link {
+    margin: 20px;
+}
 
-.row-buttons button {
-    width: 180px;
+.cadastro-link p {
+    color: #1A237E;
+    font-size: 18px;
+}
+
+.cadastro-link a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.cadastro-link a:hover {
+    text-decoration: underline;
+    color: #388E3C;
+    transition: 0.3s;
 }

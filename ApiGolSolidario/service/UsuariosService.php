@@ -53,6 +53,20 @@
             return Usuarios::atualizar($id, $dados);
         }
 
+        //Método PUT times /usuarios/{id}/time
+        public function putTime( $id = null ) {
+            if($id == null) {
+                throw new Exception("ID inválido");
+            }
+
+            $dados = json_decode(file_get_contents("php://input"), true, 512);
+            if($dados == null || !isset($dados["time_id"])) {
+                throw new Exception("Dados inválidos");
+            }
+            
+            return Usuarios::alterarTime($id, $dados["time_id"]);
+        }
+
         //Método DELETE /usuarios/{id}
         public function delete( $id ) {
             if($id == null) {
@@ -60,6 +74,10 @@
             }
 
             return Usuarios::deletar($id);
+        }
+        public function logout() {
+            http_response_code(200);
+            return json_encode(["mensagem" => "Logout concluído com sucesso."]);
         }
     }
 ?>

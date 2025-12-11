@@ -48,7 +48,7 @@ $(document).ready(function() {
                 
                 // Limpa o formulário e redireciona (ajuste o caminho se necessário)
                 $formCadastro[0].reset();
-                // window.location.href = '/login.html'; 
+                window.location.href = '/login.html'; 
             },
 
             error: function(xhr, status, error) {

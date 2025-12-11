@@ -1,12 +1,14 @@
 $(document).ready(function() {
-    
+
+    $('#btn-logout').on('click', handleLogout);
+
     // 1. Obtém o ID do usuário logado do LocalStorage
     const USUARIO_ID = localStorage.getItem('usuario_logado_id'); 
     
     // Verifica se o usuário está logado
     if (!USUARIO_ID) {
         alert('Sessão expirada ou usuário não logado. Redirecionando para o login.');
-        window.location.href = '/login.html'; // Ajuste o caminho conforme necessário
+        window.location.href = './login.html'; // Ajuste o caminho conforme necessário
         return;
     }
 
@@ -103,3 +105,24 @@ $(document).ready(function() {
     });
 
 });
+
+function handleLogout() {
+    // 1. Chamada à API (para fins de padronização e escalabilidade)
+    $.ajax({
+        url: 'http://localhost/ProjetoWebService/ApiGolSolidario/logout',
+        type: 'GET',
+        dataType: 'json',
+        // O bloco 'complete' será executado independentemente de sucesso ou falha da API
+        complete: function() {
+            console.log("Logout local concluído.");
+            
+            // 2. AÇÃO CRUCIAL: Limpar as credenciais no cliente
+            localStorage.removeItem('usuario_logado_id'); 
+            localStorage.removeItem('usuario_nome');
+            localStorage.removeItem('time_id'); // Se estiver usando para armazenar o time
+            
+            // 3. Redirecionar para a tela de login
+            window.location.href = 'login.html'; 
+        }
+    });
+}

@@ -43,14 +43,41 @@
                     exit;
                 }
 
-            } else { //Rota para outros metodos - GET, PUT, DELETE
+            }  else if ($method == "PUT") {
+
+                if (count($url) == 2 && $url[1] == "time") {
+                    $method_name = "putTime";
+                    $id= count($url) > 0 ? $url[0] : null;
+
+                } else if (count($url) == 1) {
+                    $method_name = "put";
+                    $id= count($url) > 0 ? $url[0] : null;
+
+                } else {
+                    echo json_encode(["mensagem" => "Rota de atualização de usuário inválida."]);
+                    http_response_code(400);
+                    exit;
+                }
+
+            }else { //Rota para outros metodos - GET, PUT, DELETE
                 $method_name = $method;
                 $id = count($url) > 0 ? $url[0] : null;
             }
 
-            
+        } else if ($url[0] == "logout") {
+            array_shift($url); 
+    
+            if ($method == "GET" && count($url) === 0) {
+                $service = "UsuariosService"; 
+                $method_name = "logout"; 
+                $id = null;
+            } else {
+                http_response_code(405);
+                echo json_encode(["mensagem" => "Rota inválida para /logout."]);
+                exit;
+            }
 
-        }else if($url[0] == "times"){
+        } else if($url[0] == "times"){
             array_shift($url);
 
             if($method == "GET"){
@@ -74,7 +101,7 @@
 
                 $id= count($url) > 0 ? $url[0] : null;
             }
-        }else if($url[0] == "doacao"){
+        } else if($url[0] == "doacao"){
             array_shift($url);
 
             if($method == "GET"){
@@ -93,7 +120,7 @@
                     exit;
                 }
 
-            }else if($method == "PUT"){
+            } else if($method == "PUT"){
                 
                 if(count($url) == 1){ //Rota 1 - /doacao/{id}
                     $method_name = "put";
@@ -114,7 +141,7 @@
 
                 $id= count($url) > 0 ? $url[0] : null;
             }
-        }else if($url[0] == "partidas"){
+        } else if($url[0] == "partidas"){
             array_shift($url);
 
             if($method == "GET"){
@@ -133,7 +160,7 @@
                     exit;
                 }
 
-            }else if($method == "PUT"){
+            } else if($method == "PUT"){
 
                 if(count($url) == 1){ //Rota 1 - /partidas/{id}
                     $method_name = "putPartida";
@@ -148,7 +175,7 @@
                     http_response_code(404);
                     exit;
                 }
-            }else { //Rota para outros metodos - POST, DELETE
+            } else { //Rota para outros metodos - POST, DELETE
                 $method_name = $method;
 
                 $id= count($url) > 0 ? $url[0] : null;

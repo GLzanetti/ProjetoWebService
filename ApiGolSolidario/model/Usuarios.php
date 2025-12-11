@@ -10,21 +10,22 @@
 
             $conexao = new PDO(dbDriver.":host=".dbHost.";dbname=".dbName, dbUsuario, dbSenha);
 
-            $sql = "INSERT INTO $tabela (nome, telefone, email, senha, time_id) VALUES (:nome, :telefone, :email, :senha, :time_id)";
+            $sql = "INSERT INTO $tabela (nome, telefone, email, senha) VALUES (:nome, :telefone, :email, :senha)";
             
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":nome", $usuario["nome"]);
             $stmt->bindValue(":email", $usuario["email"]);
             $stmt->bindValue(":telefone", $usuario["telefone"]);
             $stmt->bindValue(":senha", $usuario["senha"]);
-            $stmt->bindValue(":time_id", $usuario["time_id"]);
 
             $stmt->execute();
 
             if($stmt->rowCount() > 0) {
-                return "Usuário inserido com sucesso!";
+                http_response_code(201);
+                return json_encode(["mensagem" => "Usuário cadastrado com sucesso!"]);
             } else {
-                return "Erro ao inserir usuário.";
+                http_response_code(500); 
+                return json_encode(["mensagem" => "Erro ao inserir usuário."]);
             }
         }
 
@@ -112,6 +113,29 @@
                 return "Usuário alterado com sucesso!";
             } else {
                 return "Erro ao alterar usuário.";
+            }
+        }
+
+        //Alterar time usuario
+        public static function alterarTime($id, $time_id) {
+            $tabela = "usuarios";
+
+            $conexao = new PDO(dbDriver.":host=".dbHost.";dbname=".dbName, dbUsuario, dbSenha);
+
+            $sql = "UPDATE $tabela SET time_id = :time_id WHERE id = :id";
+            
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":time_id", $time_id);
+            $stmt->bindValue(":id", $id);
+
+            $stmt->execute();
+
+            if($stmt->rowCount() > 0) {
+                http_response_code(200);
+                return json_encode(["mensagem" => "Time selecionado com sucesso!"]);
+            } else {
+                http_response_code(200); 
+                return json_encode(["mensagem" => "Nenhuma alteração feita (Time já selecionado)."]);
             }
         }
 

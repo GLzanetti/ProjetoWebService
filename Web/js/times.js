@@ -25,13 +25,15 @@ function carregarTimes(USUARIO_ID, timeAtualDoUsuario) {
                     const statusClass = isSelecionado ? ' time-selecionado' : '';
                     const buttonText = isSelecionado ? 'SELECIONADO' : 'Selecionar';
                     const isDisabled = isSelecionado ? ' disabled' : '';
+                    const qtdJogadores = time.quantidade_jogadores || 0;
 
                     // Criação do Card (Molde HTML)
                     const timeCard = `
                         <div class="time-card${statusClass}" data-time-id="${time.id}">
                             <h3>${time.nome}</h3>
-                            <p>${time.descricao || 'Time pronto para entrar em campo!'}</p>
-                            <p>Meta de Doações: <strong>R$ ${time.meta_doacoes || 'N/A'}</strong></p>
+                            
+                            <p>Membros Atuais: <strong>${qtdJogadores}</strong></p> 
+                            
                             <button class="btn-selecionar-time" 
                                     data-id="${time.id}"
                                     ${isDisabled}>
@@ -77,7 +79,7 @@ function initTimeSelectionHandler(USUARIO_ID) {
         };
 
         $.ajax({
-            url: `http://localhost/ProjetoWebService/ApiGolSolidario/usuarios/${USUARIO_ID}`,
+            url: `http://localhost/ProjetoWebService/ApiGolSolidario/usuarios/${USUARIO_ID}/time`,
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(dadosParaAtualizar),

@@ -9,21 +9,53 @@
 </head>
 
 <body>
-    <h1 class="titulo">Configurações do Usuário</h1>
-
     <div class="container">
-        <h2 class="nome-usuario">Nome do Usuário</h2>
-        <p class="time-usuario">Time do usuário</p>
+        <div class="header">
+            <img src="imagens/Logo_do_Gol_Solidário.jpeg" alt="Logo do Gol Solidário">
+            <h1>Bem Vindo Ao Centro de Configurações do Usuário!!!</h1>
+        </div>
+        <div class="body">
+            <div class="user-settings">
+                <h2>Configurações do Usuário</h2>
+                <form id="form-atualizacao">
 
-        <input type="text" placeholder="Nome" class="input">
-        <input type="email" placeholder="Email" class="input">
-        <input type="text" placeholder="Time" class="input">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
 
-        <div class="botoes">
-            <button class="btn">Salvar</button>
-            <button class="btn">Sair</button>
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" id="telefone" name="telefone" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required disabled>
+
+                    <label for="senha">Nova Senha (deixe em branco para manter a atual):</label>
+                    <input type="password" id="senha" name="senha"> <button type="submit">Salvar Alterações</button>
+                </form>
+            </div>
+            <div class="text-times">
+                <p> Bem-vindo(a) à reta final da sua inscrição no Gol Solidário! Abaixo, você encontra todos os times
+                    que
+                    estão se formando para disputar o nosso grande campeonato em prol das cestas básicas. </p>
+
+                <p> Lembre-se: ao selecionar um time, você se compromete com a equipe e com a causa. Sua escolha é
+                    definitiva e não poderá ser alterada após a confirmação, garantindo a organização e a integridade do
+                    torneio. </p>
+
+                <p> Analise a lista, veja o número de jogadores já inscritos e clique em "Selecionar" para garantir sua
+                    vaga. O campo está te esperando para juntos marcarmos o maior golaço: o da solidariedade! </p>
+            </div>
+            <div class="times">
+                <h2>Seleção de Times</h2>
+                <div class="times-container">
+                    <p>Carregando times...</p>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous">
+</script>
+    <script src="js/times.js"></script>
+    <script src="js/usuario.js"></script>
 </body>
 
 </html>

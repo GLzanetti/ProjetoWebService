@@ -8,8 +8,9 @@ CREATE TABLE times(
 create TABLE usuarios(
 	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome varchar(100) NOT NULL,
-    email varchar(150) NOT NULL,
     telefone varchar(20) NOT NULL,
+    email varchar(150) NOT NULL,
+    senha varchar(20) NOT NULL,
     time_id int,
     FOREIGN KEY (time_id) REFERENCES times(id)
 );

@@ -23,6 +23,22 @@
             return Usuarios::inserir($dados);
         }
 
+        //Metodo POST /usuarios/login
+        public function login() {
+            $dados = json_decode(file_get_contents("php://input"), true, 512);
+            if($dados == null || !isset($dados["email"]) || !isset($dados["senha"])) {
+                throw new Exception("Dados inválidos");
+            }
+            
+            $resultado = Usuarios::login($dados["email"], $dados["senha"]);
+
+            if (is_array($resultado)) {
+                return json_encode($resultado); 
+            } else {
+                return $resultado;
+            }
+        }
+
         //Método PUT /usuarios/{id}
         public function put( $id = null ) {
             if($id == null) {

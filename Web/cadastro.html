@@ -5,27 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/cadastro.css">
-    <title>Cadastro</title>
+    <title>Cadastro | Gol Solidário</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>Cadastro</h1>
-
-
-        <input type="text" placeholder="Nome">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Senha">
-        <input type="password" placeholder="Confirmar Senha">
-
-        <button>Finalizar Cadastro</button>
-
+        <h1>Cadastre-se e Jogue Pela Solidariedade!</h1>
+        
+        <form id="form-cadastro">
+            
+            <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+            
+            <input type="email" id="email" name="email" placeholder="Seu melhor email" required>
+            
+            <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+            
+            <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+            
+            <input type="password" id="confirmar-senha" placeholder="Confirmar Senha" required>
+            
+            <button type="submit">Finalizar Cadastro</button>
+        </form>
 
         <div class="page_links">
-            <p>Ja faz parte do time? <a href="login.html">Login</a></p>
+            <p>Já faz parte do time? <a href="login.html">Login</a></p>
             <p>Voltar para o <a href="index.html">Início</a></p>
         </div>
     </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous">
+</script>
+    <script src="js/cadastro.js"></script>
 </body>
 
 </html>

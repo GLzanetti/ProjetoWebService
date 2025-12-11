@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/login.css">
-    <title>Login</title>
+    <title>Login | Gol Solidário</title>
 </head>
 
 <body>
@@ -18,16 +18,24 @@
 
         <h2>Login</h2>
 
-        <input type="text" placeholder="Nome">
-        <input type="password" placeholder="Senha">
+        <form id="form-login"> 
+            
+            <input type="email" id="email-login" name="email" placeholder="Email" required> 
+            
+            <input type="password" id="senha-login" name="senha" placeholder="Senha" required>
 
-        <button>Login</button>
+            <button type="submit">Login</button>
+        </form>
 
         <div class="cadastro-link">
             <p>Ainda não possui cadastro? <a href="cadastro.html">Cadastre-se</a></p>
             <p>Voltar para o <a href="index.html">Início</a></p>
         </div>
     </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous">
+</script>
+    <script src="js/login.js"></script> 
 </body>
 
 </html>

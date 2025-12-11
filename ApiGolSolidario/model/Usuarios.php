@@ -10,12 +10,13 @@
 
             $conexao = new PDO(dbDriver.":host=".dbHost.";dbname=".dbName, dbUsuario, dbSenha);
 
-            $sql = "INSERT INTO $tabela (nome, email, telefone, time_id) VALUES (:nome, :email, :telefone, :time_id)";
+            $sql = "INSERT INTO $tabela (nome, telefone, email, senha, time_id) VALUES (:nome, :telefone, :email, :senha, :time_id)";
             
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":nome", $usuario["nome"]);
             $stmt->bindValue(":email", $usuario["email"]);
             $stmt->bindValue(":telefone", $usuario["telefone"]);
+            $stmt->bindValue(":senha", $usuario["senha"]);
             $stmt->bindValue(":time_id", $usuario["time_id"]);
 
             $stmt->execute();
@@ -24,6 +25,28 @@
                 return "Usuário inserido com sucesso!";
             } else {
                 return "Erro ao inserir usuário.";
+            }
+        }
+
+        //Login usuario
+        public static function login($email, $senha) {
+            $tabela = "usuarios";
+
+            $conexao = new PDO(dbDriver.":host=".dbHost.";dbname=".dbName, dbUsuario, dbSenha);
+
+            $sql = "SELECT * FROM $tabela WHERE email = :email AND senha = :senha";
+
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":email", $email);
+            $stmt->bindValue(":senha", $senha);
+            $stmt->execute();
+
+            if($stmt->rowCount() > 0) {
+                $valores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $valores;
+            } else {
+                http_response_code(401);
+                return json_encode(["mensagem" => "Email ou senha incorretos."]);
             }
         }
 

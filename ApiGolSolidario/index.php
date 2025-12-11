@@ -5,6 +5,11 @@
     require_once 'service/DoacaoService.php';
     require_once 'service/PartidasService.php';
 
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type");
+    header("Content-Type: application/json; charset=utf-8");
+
     //If para a validação da URL
     if(@$_GET['url']){
         $url = explode('/', @$_GET['url']);
@@ -19,9 +24,31 @@
         
         if($url[0] == "usuarios"){
             
-            $method_name = $method;
             array_shift($url);
-            $id = count($url) > 0 ? $url[0] : null;
+
+            if($method == "POST"){
+                if(count($url) == 0){ 
+                    // ROTA 1: POST /usuarios (CRIAR NOVO USUÁRIO / CADASTRO)
+                    $method_name = "post"; 
+                    $id = null;
+
+                } else if(count($url) == 1 && $url[0] == "login"){
+                    // ROTA 2: POST /usuarios/login (AUTENTICAÇÃO / LOGIN)
+                    $method_name = "login";
+                    $id = null;
+
+                } else {
+                    echo ("Rota não encontrada 404");
+                    http_response_code(404);
+                    exit;
+                }
+
+            } else { //Rota para outros metodos - GET, PUT, DELETE
+                $method_name = $method;
+                $id = count($url) > 0 ? $url[0] : null;
+            }
+
+            
 
         }else if($url[0] == "times"){
             array_shift($url);

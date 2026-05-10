@@ -34,8 +34,6 @@ O principal objetivo foi aplicar conceitos fundamentais de desenvolvimento web, 
 
 Esta documentação lista todos os endpoints (URLs) suportados pela API, organizados por recurso.
 
----
-
 ## 1. Recurso: `/usuarios`
 
 | Método | URL | Descrição |
